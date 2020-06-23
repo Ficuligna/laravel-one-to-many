@@ -4,6 +4,14 @@
 
   EMPLOYEE:  {{$employee["name"]}} {{$employee["last_name"]}}
   <br>
+  LOCATIONS: <br>
+  <ul>
+    @foreach ($emplocations as $emplocation)
+      <li>
+        {{$emplocation["street"]}} --- {{$emplocation["city"]}} --- {{$emplocation["state"]}}<br>
+      </li>
+    @endforeach
+  </ul>
   Tasks assigned:<br>
   <ul>
     @foreach ($employee_tasks as $task)

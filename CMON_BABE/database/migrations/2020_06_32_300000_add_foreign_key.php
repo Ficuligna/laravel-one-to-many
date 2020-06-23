@@ -19,6 +19,22 @@ class AddForeignKey extends Migration
                 -> on("employees");
       });
 
+      Schema::table('employee_location', function (Blueprint $table) {
+        $table  -> foreign("employee_id", "employee_loc")
+                -> references("id")
+                -> on("employees")
+                -> onDelete("cascade");
+        $table  -> foreign("location_id", "location")
+                -> references("id")
+                -> on("locations")
+                -> onDelete("cascade");
+
+
+      });
+
+
+
+
     }
 
     /**
@@ -30,6 +46,11 @@ class AddForeignKey extends Migration
     {
       Schema::table('tasks', function (Blueprint $table) {
         $table -> dropForeign("employee");
+      });
+
+      Schema::table('employee_location', function (Blueprint $table) {
+        $table -> dropForeign("employee_loc");
+        $table -> dropForeign("location");
       });
     }
 }
