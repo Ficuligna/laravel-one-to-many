@@ -16,7 +16,9 @@ class AddForeignKey extends Migration
       Schema::table('tasks', function (Blueprint $table) {
         $table  -> foreign("employee_id", "employee")
                 -> references("id")
-                -> on("employees");
+                -> on("employees")
+                -> onDelete("cascade");
+
       });
 
       Schema::table('employee_location', function (Blueprint $table) {

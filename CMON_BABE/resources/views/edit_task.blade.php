@@ -17,10 +17,10 @@
     @method("POST")
 
     <label for="title">TITLE</label>
-    <input type="text" name="title" value="{{$task['title']}}"> <br>
+    <input type="text" name="title" value="{{$task['title']}}"> <br><br>
 
     <label for="description">DESCRIPTION</label>
-    <input type="text" name="description" value="{{$task['description']}}"> <br>
+    <input type="text" name="description" value="{{$task['description']}}"> <br><br>
 
     <label for="employee_id">EMPLOYEE</label>
     <select name="employee_id">
@@ -32,11 +32,11 @@
         >
           {{$employee['name']}} {{$employee['last_name']}}
         </option>
-
       @endforeach
 
-    </select><br>
+    </select><br><br>
 
     <input type="submit" name="" value="Update">
+
   </form>
 @endsection

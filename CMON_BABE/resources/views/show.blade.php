@@ -20,5 +20,6 @@
         {{$task["description"]}}<br>
       </li><br>
     @endforeach
-  </ul>
+
+    <a href="{{route('edit_emp', $employee['id'])}}">Edit</a> <a href="{{route('delete_emp', $employee['id'])}}">Delete</a>
 @endsection

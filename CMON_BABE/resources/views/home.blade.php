@@ -1,29 +1,23 @@
-@extends('layouts.main_layout')
+@extends('layouts.app')
 
-@section('main_section')
+@section('content')
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">Dashboard</div>
 
-  @if (session('status'))
-    <div class="alert alert-success">
-      <h2>
-        {{ session('status') }}
-      </h2>
+                <div class="card-body">
+                    @if (session('status'))
+                        <div class="alert alert-success" role="alert">
+                            {{ session('status') }}
+                        </div>
+                    @endif
+
+                    You are logged in!
+                </div>
+            </div>
+        </div>
     </div>
-@endif
-
-<a href="{{route('create_task')}}"><h2>Assign new task</h2></a>
-  <ul>
-
-    @foreach ($list as $task)
-      <li>
-        TASK TITLE: <b>{{$task["title"]}}</b><br>
-        TASK DESCRIPTION: <b>{{$task["description"]}}</b><br>
-        EMPLOYEE: <a href="{{route('show_all_tasks', $task -> employee -> id)}}">
-          <b>{{$task -> employee -> name}} {{$task -> employee -> last_name}}</b>
-        </a> <br>
-        <a href="{{route('edit_task', $task['id'])}}">Edit</a> <a href="{{route('delete_task', $task['id'])}}">Delete</a>
-        <br><br>
-
-      </li>
-    @endforeach
-  </ul>
+</div>
 @endsection
